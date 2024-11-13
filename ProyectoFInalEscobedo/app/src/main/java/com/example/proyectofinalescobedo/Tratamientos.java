@@ -23,10 +23,11 @@ public class Tratamientos extends AppCompatActivity {
     public ListView listView;
     public ArrayList<String> list;
 
-    public TextView tvPrecio;
+    public TextView tvPrecio, tvDuracion;
     ArrayAdapter<String> adapter;
 
     private String precios[] = {"$6000","$200","500","$400"};
+    private String duracion[] = {"2 anios", "1 hora", "1 hora", "tiempo no estimado"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,7 @@ public class Tratamientos extends AppCompatActivity {
 
         //salida de precio
         tvPrecio = findViewById(R.id.tvPrecio);
+        tvDuracion = findViewById(R.id.tvDuracion);
 
         this.tvPrecio.setText(null);
 
@@ -59,6 +61,7 @@ public class Tratamientos extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int posicion, long id) {
                 if (posicion < precios.length) {
                     tvPrecio.setText("Precio: " + precios[posicion]);  // Validación de índice de precios
+                    tvDuracion.setText("Duracion:" + duracion[posicion]);
                 } else {
                     tvPrecio.setText("Precio no disponible");  // Manejar el caso fuera de rango
                 }

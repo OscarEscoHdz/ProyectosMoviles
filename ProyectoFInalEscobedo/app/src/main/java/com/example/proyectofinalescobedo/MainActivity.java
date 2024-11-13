@@ -9,6 +9,9 @@ import android.widget.EditText;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
                     correo.setError("Correo incorrecto");
                     password.getText().toString().isEmpty();
                     password.setError("Contraseña incorrecta");
+                    YoYo.with(Techniques.Pulse).duration(1000).repeat(1).playOn(ingresar);
                 }
             }
         });
