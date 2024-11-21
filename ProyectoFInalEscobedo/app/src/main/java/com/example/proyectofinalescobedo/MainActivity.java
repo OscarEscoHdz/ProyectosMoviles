@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(correo.getText().toString().equals("jedi")&&password.getText().toString().equals("123")){
+                if(correo.getText().toString().equals("admin")&&password.getText().toString().equals("123")){
                     Intent intent1 = new Intent(view.getContext(),Menu.class);
                     startActivity(intent1);
             }else{
@@ -46,6 +46,4 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
-
 }

@@ -33,11 +33,9 @@ public class AgendarCita extends AppCompatActivity {
         SQLiteDatabase bd = null;
 
         try {
-            // Objeto de administración a la base de datos SQLite
             AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 3);
-            bd = admin.getWritableDatabase(); // Base de datos disponible para escritura
+            bd = admin.getWritableDatabase();
 
-            // Capturar los datos del formulario para procesarlos a la tabla
             String Nombre = nombre.getText().toString();
             String Apellidos = apellidos.getText().toString();
             String Edad = edad.getText().toString();
@@ -45,10 +43,8 @@ public class AgendarCita extends AppCompatActivity {
             String Fecha = fecha.getText().toString();
             String Descripcion = descripcion.getText().toString();
 
-            // Crear un contenedor de variables para inyectar los valores a la tabla
             ContentValues registro = new ContentValues();
 
-            // Asociar los campos de la tabla con los valores del formulario
             registro.put("nombreBD", Nombre);
             registro.put("apellidosBD", Apellidos);
             registro.put("edadBD", Edad);
@@ -56,10 +52,8 @@ public class AgendarCita extends AppCompatActivity {
             registro.put("fechaBD", Fecha);
             registro.put("descripcionBD", Descripcion);
 
-            // Insertar el registro en la tabla "citas"
             bd.insert("citas", null, registro);
 
-            // Limpiar campos del formulario
             nombre.setText("");
             apellidos.setText("");
             edad.setText("");
@@ -67,32 +61,26 @@ public class AgendarCita extends AppCompatActivity {
             fecha.setText("");
             descripcion.setText("");
 
-            // Ventana emergente
             Toast.makeText(this, "Cita agendada correctamente", Toast.LENGTH_LONG).show();
         } catch (Exception e) {
-            // Manejo de la excepción
             Toast.makeText(this, "Error al agendar la cita: " + e.getMessage(), Toast.LENGTH_LONG).show();
-            e.printStackTrace(); // Para mostrar la excepción en el log
+            e.printStackTrace();
         } finally {
             if (bd != null && bd.isOpen()) {
-                bd.close(); // Cierra la base de datos al final
+                bd.close();
             }
         }
     }
 
 
 
-    public void consultarCita(View view) { // Inicia método consulta empleado
-        // Objeto de administración de la base de datos SQLite
+    public void consultarCita(View view) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 3);
-        SQLiteDatabase bd = admin.getWritableDatabase(); // Base de datos disponible para escritura
+        SQLiteDatabase bd = admin.getWritableDatabase();
 
-        // Campo distintivo de búsqueda a la tabla empleado
         String Nombre = nombre.getText().toString();
 
-        // Verifica que el campo nombre no esté vacío
         if (!Nombre.isEmpty()) {
-            // Cursor para consulta de un registro utilizando argumentos
             Cursor fila = bd.rawQuery("SELECT apellidosBD, edadBD, telefonoBD, fechaBD, descripcionBD FROM citas WHERE nombreBD = ?", new String[]{Nombre});
 
             if (fila.moveToFirst()) {
@@ -102,26 +90,23 @@ public class AgendarCita extends AppCompatActivity {
                 fecha.setText(fila.getString(3));
                 descripcion.setText(fila.getString(4));
             } else {
-                // Ventana emergente
+
                 Toast.makeText(this, "Error: La cita no existe", Toast.LENGTH_LONG).show();
             }
 
-            fila.close(); // Cierra el cursor después de su uso
+            fila.close();
         } else {
-            // Ventana emergente si el campo está vacío
             Toast.makeText(this, "Por favor, ingresa un nombre", Toast.LENGTH_LONG).show();
         }
 
         bd.close(); // Cierra la base de datos
-    } // Termina método consulta empleado
+    }
 
-    public void editarProducto(View view) { // Inicia método de editar
+    public void editarProducto(View view) {
 
-        // Objeto de administración para la base de datos SQLite
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 3);
-        SQLiteDatabase bd = admin.getWritableDatabase(); // Base de datos disponible para escritura
+        SQLiteDatabase bd = admin.getWritableDatabase();
 
-        // Capturar los datos del formulario para procesarlos en la tabla articulo
         String Nombre = nombre.getText().toString();
         String Apellidos = apellidos.getText().toString();
         String Edad = edad.getText().toString();
@@ -129,22 +114,17 @@ public class AgendarCita extends AppCompatActivity {
         String Fecha = fecha.getText().toString();
         String Descripcion = descripcion.getText().toString();
 
-        // Validar que los campos no estén vacíos
         if (!Nombre.isEmpty() && !Apellidos.isEmpty() && !Edad.isEmpty() && !Telefono.isEmpty() && !Fecha.isEmpty() && !Descripcion.isEmpty()) {
 
-            // Se crea un contenedor de variables para inyectar los valores a la tabla
             ContentValues registro = new ContentValues();
 
-            // Se integran los campos de la tabla articulo con los valores del formulario
             registro.put("nombreBD", Nombre);
             registro.put("apellidosBD", Apellidos);
             registro.put("edadBD", Edad);
             registro.put("telefonoBD", Telefono);
             registro.put("fechaBD", Fecha);
             registro.put("descripcionBD", Descripcion);
-            //Registro no se cambiar
 
-            // Instrucción SQL para editar
             int actualizacion = bd.update("citas", registro, "nombreBD = ?", new String[]{Nombre});
 
             bd.close();
@@ -165,17 +145,15 @@ public class AgendarCita extends AppCompatActivity {
         }
     }
 
-    public void eliminarCita(View view) { // Inicia método para eliminar producto
-        // Objeto de administración para la base de datos SQLite
+    public void eliminarCita(View view) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 3);
-        SQLiteDatabase bd = admin.getWritableDatabase(); // Base de datos disponible para escritura
+        SQLiteDatabase bd = admin.getWritableDatabase();
 
-        // Campo distintivo de búsqueda a la tabla artículo basado en el nombre del producto
         String NombreBaja = nombre.getText().toString();
 
-        // Verifica que el nombre no esté vacío antes de intentar eliminar
+
         if (!NombreBaja.isEmpty()) {
-            // Instrucción SQL para eliminar el registro mediante el nombre del producto
+
             int confirmarBaja = bd.delete("citas", "nombreBD = ?", new String[]{NombreBaja});
             bd.close();
 

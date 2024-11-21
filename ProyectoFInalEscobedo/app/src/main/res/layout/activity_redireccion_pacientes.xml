@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Tratamientos">
+    tools:context=".RedireccionPacientes">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,38 +22,57 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/tvPrecio"
+            android:id="@+id/textView13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:text="Precio"
-            android:textColor="#B81D1D"
-            android:textSize="35sp"
+            android:gravity="center_horizontal"
+            android:text="Odontologos recomendados"
+            android:textSize="25sp"
             android:textStyle="bold|italic" />
 
         <TextView
-            android:id="@+id/tvDuracion"
+            android:id="@+id/textView15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:text="Duracion"
-            android:textColor="#B81D1D"
-            android:textSize="35sp"
+            android:gravity="center_horizontal"
+            android:text="Consultorio Dra. Erika Jazmín"
+            android:textSize="25sp"
             android:textStyle="bold|italic" />
 
-        <SearchView
-            android:id="@+id/searchView"
+        <WebView
+            android:id="@+id/webview"
             android:layout_width="match_parent"
-            android:layout_height="59dp">
+            android:layout_height="236dp" >
 
-        </SearchView>
+        </WebView>
 
-        <ListView
-            android:id="@+id/lv1"
+        <Button
+            android:id="@+id/btnUbicacion1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:text="Ubicacion" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Consultorio dental andrea"
+            android:textSize="25sp"
+            android:textStyle="bold|italic" />
+
+        <WebView
+            android:id="@+id/webview2"
+            android:layout_width="match_parent"
+            android:layout_height="244dp" />
+
+        <Button
+            android:id="@+id/btnUbucacion2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ubicacion" />
+
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

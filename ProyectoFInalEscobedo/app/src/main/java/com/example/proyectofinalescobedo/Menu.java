@@ -13,7 +13,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 public class Menu extends AppCompatActivity {
 
-    public CardView cita, acecaDe, expedientes, inventario, tratamientos;
+    public CardView cita, acecaDe, expedientes, inventario, tratamientos, redirigir;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +62,15 @@ public class Menu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent1 = new Intent(view.getContext(),Tratamientos.class);
+                startActivity(intent1);
+            }
+        });
+
+        redirigir = findViewById(R.id.cardRedirigir);
+        redirigir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(view.getContext(),RedireccionPacientes.class);
                 startActivity(intent1);
             }
         });

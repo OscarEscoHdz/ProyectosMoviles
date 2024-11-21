@@ -1,22 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Menu"
-    android:background="@drawable/fondo2">
+    android:background="@drawable/fondo"
+    tools:context=".Menu">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="-30dp"
+            android:layout_marginBottom="551dp"
+            android:text="Menu principal"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
 
         <androidx.gridlayout.widget.GridLayout
             android:id="@+id/idGrid"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="432dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="56dp"
             android:padding="4dp"
             app:columnCount="2"
             app:rowCount="3">
@@ -24,7 +39,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardCita"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="34dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="10dp"
@@ -37,24 +52,30 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="141dp"
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:orientation="vertical">
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="123dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/avatar15" />
+
                     <TextView
                         android:id="@+id/textView2"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
                         android:text="Agendar cita" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
 
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardExpedientes"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="10dp"
@@ -70,18 +91,25 @@
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:orientation="vertical">
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/instrucciones" />
+
                     <TextView
                         android:id="@+id/textView4"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
                         android:text="Expediente" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardReubicar"
+                android:id="@+id/cardRedirigir"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="10dp"
@@ -97,10 +125,17 @@
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:orientation="vertical">
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/ajustes" />
+
                     <TextView
                         android:id="@+id/textView"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
                         android:text="Redireccion de pacientes" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -108,7 +143,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardAcercaDe"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="10dp"
@@ -124,10 +159,17 @@
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:orientation="vertical">
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/informacion" />
+
                     <TextView
                         android:id="@+id/textView5"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
                         android:text="Acerca de nosotros" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -135,7 +177,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardInventario"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="78dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="10dp"
@@ -151,10 +193,17 @@
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:orientation="vertical">
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/instrucciones" />
+
                     <TextView
                         android:id="@+id/textView6"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
                         android:text="Inventario" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -178,10 +227,17 @@
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:orientation="vertical">
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/instrucciones" />
+
                     <TextView
                         android:id="@+id/textView7"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
                         android:text="Tratamientos" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#78D1DC"
+    android:background="#408F99"
     tools:context=".ConsultaCitaFragment">
 
     <LinearLayout
@@ -29,6 +29,12 @@
             android:text="Escobedo Hernandez Oscar"
             android:textSize="25sp"
             android:textStyle="bold|italic" />
+
+        <Button
+            android:id="@+id/btnContacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contactame" />
     </LinearLayout>
 
 </FrameLayout>
